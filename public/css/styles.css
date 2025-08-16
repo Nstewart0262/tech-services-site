@@ -1,0 +1,113 @@
+/* reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+
+/* header */
+header {
+    background-color: #0a3d62;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* navigation */
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0a3d62;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #3c6382;
+}
+
+/* main content */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #0a3d62;
+}
+
+main ul, main ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+main li {
+    margin-bottom: 0.5rem;
+}
+
+main p {
+    margin-top: 1rem;
+}
+
+/* footer */
+footer {
+    background-color: #0a3d62;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, .05);
+}
+
+/* responsive design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main h2 {
+        font-size: 1.25rem;
+    }
+}
