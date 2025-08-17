@@ -41,19 +41,15 @@ app.post('/contact', async (req, res) => {
     }
   });
 
-  // Email content
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
-    subject: `New message from ${name}`,
-    text: message
-  };
-
   try {
-    await transporter.sendMail(mailOptions);
-    res.send('Message sent successfully!');
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL_USER,
+      subject: 'New message from ${name}',
+      text: message
+    });
   } catch (err) {
-    console.error('Email error:', err);
+    console.error(err);
     res.status(500).send('Failed to send message.');
   }
 });
