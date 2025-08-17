@@ -1,24 +1,34 @@
+// import required modules
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+// create express app
 const app = express();
 
-// Serve static files like CSS, images, favicon
+// Serve static files from public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parse form data from POST requests
 app.use(express.urlencoded({ extended: true }));
 
 // Serve HTML pages from the views folder
-const servePage = (page) => (req, res) =>
-  res.sendFile(path.join(__dirname, 'views', `${page}.html`));
+const servePage = (pageName) => (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', `${pageName}.html`));
+};
 
+// routes for each page
 app.get('/', servePage('index'));
+app.get('/cleaning', servePage('cleaning'));
+app.get('/windows', servePage('windows'));
+app.get('/upgrades', servePage('upgrades'));
+app.get('/antivirus', servePage('antivirus'));
+app.get('/sales', servePage('sales'));
+app.get('/mail-in', servePage('mail-in'));
 app.get('/contact', servePage('contact'));
-// Add other pages like /cleaning, /windows, etc.
 
+// contact form POST route (optional)
 app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
